@@ -1,0 +1,500 @@
+@font-face {
+    font-family: "barlow-regular";
+    src: url("fonts/Barlow-Regular.ttf");
+}
+@font-face {
+    font-family: "barlowcond-regular";
+    src: url("fonts/BarlowCondensed-Regular.ttf");
+}
+@font-face {
+    font-family: "barlowcond-bold";
+    src: url("fonts/BarlowCondensed-Bold.ttf");
+}
+
+:root{
+
+    --clr-red: hsl(0, 100%, 68%);
+    --clr-very-dark-blue: hsl(230, 29%, 20%);
+    --clr-dark-grayish-blue: hsl(230, 11%, 40%);
+    --clr-grayish-blue: hsl(231, 7%, 65%);
+    --clr-light-grayish-blue: hsl(207, 33%, 95%);
+
+    --ff-body: "barlow-regular";
+    --ff-accent-bold: "barlowcond-bold";
+    --ff-accent-regular: "barlowcond-regular";
+
+    --letter-spacing-100: .75px;
+    --letter-spacing-400: 2px;
+    --letter-spacing-500: 2.5px;
+
+    /* --fs-300: clamp(0.75rem, 0.877vw + 0.596rem, 2rem);
+    --fs-400: clamp(1rem, 1.053vw + 0.816rem, 2.5rem);
+    --fs-500: clamp(1rem, 1.404vw + 0.754rem, 3rem);
+    --fs-600: clamp(2rem, 4.912vw + 1.14rem, 9rem); */
+
+        --fs-300: 0.75rem;
+        --fs-400: 1rem;
+        --fs-500: 1rem;
+        --fs-600: 2rem;
+}
+
+@media(min-width: 326px){
+    :root{
+        --fs-300: 0.85rem;
+        --fs-400: 1rem;
+        --fs-500: 1.2rem;
+        --fs-600: 2.5rem;
+    }
+}
+
+@media(min-width: 425px){
+    :root{
+        --letter-spacing-500: 4.5px;
+
+        --fs-300: 1rem;
+        --fs-400: 1rem;
+        --fs-500: 1rem;
+        --fs-600: 3rem;
+    }
+}
+
+@media(min-width: 600px){
+    :root{
+        --fs-300: 0.8rem;
+        --fs-400: 0.85rem;
+        --fs-500: 1rem;
+        --fs-600: 2rem;
+    }
+}
+
+@media(min-width: 800px){
+    :root{
+        --fs-300: 1rem;
+        --fs-400: 1rem;
+        --fs-500: 1.25rem;
+        --fs-600: 3rem;
+    }
+}
+
+@media(min-width: 1024px){
+    :root{
+        --fs-300: .85rem;
+        --fs-400: 1rem;
+        --fs-500: 1.25rem;
+        --fs-600: 4rem;
+    }
+}
+
+@media(min-width: 1440px){
+    :root{
+        --fs-300: 1.25rem;
+        --fs-400: 1.5rem;
+        --fs-500: 1.75rem;
+        --fs-600: 4.5rem;
+    }
+}
+
+@media(min-width: 1800px){
+    :root{
+        --fs-300: 1.75rem;
+        --fs-400: 2rem;
+        --fs-500: 2.25rem;
+        --fs-600: 6rem;
+    }
+}
+
+.bg-clr-red{background-color: var(--clr-red);}
+.bg-clr-very-dark-blue{background-color: var(--clr-very-dark-blue);}
+
+.clr-very-dark-blue{color: var(--clr-very-dark-blue);}
+.clr-dark-grayish-blue{color: var(--clr-dark-grayish-blue);}
+.clr-grayish-blue{color: var(--clr-grayish-blue);}
+.clr-light-grayish-blue{color: var(--clr-light-grayish-blue);}
+
+.ff-body{font-family: var(--ff-body);}
+.ff-accent-bold{font-family: var(--ff-accent-bold);}
+.ff-accent-regular{font-family: var(--ff-accent-regular);}
+
+.fs-300{font-size: var(--fs-300);}
+.fs-400{font-size: var(--fs-400);}
+.fs-500{font-size: var(--fs-500);}
+.fs-600{font-size: var(--fs-600);}
+
+.letter-spacing-100{letter-spacing: var(--letter-spacing-100);}
+.letter-spacing-400{letter-spacing: var(--letter-spacing-400);}
+.letter-spacing-500{letter-spacing: var(--letter-spacing-500);}
+
+.toUpper{text-transform: uppercase;}
+
+/*------------------reset------------------*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"],
+li {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/*--------------general-styling---------------*/
+
+:focus {outline: 0;}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.flow>*:not(:last-child){
+    margin-bottom: var(--flow-gap,1rem);
+}
+
+.content-grid{
+    --max-width: 1050px;
+    --padding: 1rem;
+    display: grid;
+    grid-template-columns:
+     [full-width-start] minmax(var(--padding),1fr) 
+     [content-start] min((100% - var(--padding)*2)/2,var(--max-width)/2) 
+     [content-half] min((100% - var(--padding)*2)/2,var(--max-width)/2) 
+     [content-end] minmax(var(--padding),1fr) [full-width-end];
+}
+
+@media(min-width:380px){
+    .content-grid{
+        --padding: 2rem;
+    }
+}
+
+@media(min-width: 1400px){
+    .content-grid{
+        --max-width: 1100px;
+    }
+}
+
+@media(min-width: 1800px){
+    .content-grid{
+        --max-width: 1500px;
+    }
+}
+
+.content-grid>*{
+    grid-column: content;
+}
+
+.d-flex{
+    display: flex;
+    flex-direction: var(--flex-direction,row);
+    gap: var(--flex-gap,1rem);
+}
+
+.js-space-between{
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+h1{
+    line-height: 1;
+}
+
+.bg-img::before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 26rem;
+    border-radius: 0 0 0 3rem;
+    background-color: var(--clr-light-grayish-blue);
+    right: 0;
+    z-index: -1;
+}
+
+/*================= header ==================*/
+
+header{
+    padding-block: 2.75rem 2rem;
+    position: relative;
+}
+
+@media(min-width:800px){
+    header{
+        padding-block: 3.5rem 2.5rem;
+    }
+}
+
+.home-logo:focus-visible{
+    outline-offset: 6px;
+    outline-width: 4px;
+    outline-style: dotted;
+    outline-color: black;
+}
+
+.mobile-toggle{
+    min-width: 2rem;
+    min-height: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 300ms ease-in-out;
+}
+
+.mobile-toggle[aria-expanded="false"]{
+    background-image: url("images/icon-hamburger.svg");
+}
+
+.mobile-toggle[aria-expanded="true"]{
+    background-image: url("images/icon-close.svg");
+}
+
+@media(min-width:600px){
+    .mobile-toggle{
+        display: none;
+    }
+}
+
+@media(max-width:599px){
+    #main-navigation{
+        position: absolute;
+        background-color: white;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        padding-block: 4rem;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.048);
+        animation: slideDown 300ms ease-in-out;
+    }
+
+    .hide{
+        display: none;
+    }
+}
+
+@keyframes slideDown {
+    from{
+        translate: 0 -100%;
+    }
+    to{
+        translate: 0;
+    }
+}
+
+.nav-list{
+    --flex-gap:clamp(1rem,calc(0.5rem + 3vw),3rem);
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible{
+    border-bottom: 1px solid;
+    border-color: inherit;
+}
+
+@media(max-width:599px){
+    .nav-list{
+        --flex-direction:column;
+        text-align: center;
+    }
+}
+
+.login-btn{
+    position: relative;
+}
+
+@media(max-width:599px){
+    .login-btn{
+        padding-top: var(--flex-gap);
+    }
+    .login-btn::before{
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        background-color: var(--clr-light-grayish-blue);
+        top:0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media(min-width:600px){
+    .login-btn{
+        margin-left:var(--flex-gap);
+    }
+
+    .login-btn::before{
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: var(--clr-grayish-blue);
+        left:calc(-1*var(--flex-gap));
+        top: calc(50% - 2.5px);
+    
+    }
+}
+
+/*================= hero ==================*/
+
+.hero-section{
+    overflow: hidden;
+    padding-bottom: 5rem;
+}
+
+.hero-img{
+    grid-column: content-start / full-width-end;
+    width: 31rem;
+    margin-left: -1.25rem;
+}
+
+.hero-img img{
+    width: inherit;
+}
+
+.hero-text{
+    margin-top: 4rem;
+    width: fit-content;
+}
+
+@media(min-width:400px) and (max-width:599px){
+    .hero-img{
+        margin-inline: auto;
+    }
+    .hero-text{
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .hero-text div:first-child,.hero-text div:last-child {
+        justify-content: center;
+    }
+}
+
+@media(min-width:600px){
+    .hero-section{
+        /* margin-top: 5rem; */
+        margin-top: clamp(2rem,0.5rem + 3vw,8rem);
+        align-items: center;
+    }
+
+    .hero-text{
+        --flow-gap:1.5rem;
+        grid-column: content-start / content-half;
+        grid-row: 1/2;
+        margin-top: 0;
+    }
+    
+    .hero-img{
+        grid-column: content-half / full-width-end;
+        width: min(10rem + 65vw,82.5rem);
+        margin: 0;
+    }
+}
+
+@media(min-width:1024px){
+    .hero-text>*:last-child{
+        margin-top: calc(var(--flow-gap)*2);
+    }
+}
+
+.time-tag{
+    padding: .15rem .75rem;
+    border-radius: 1rem;
+}
+
+.demo-btn{
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+    transition: opacity 300ms ease-in-out;
+}
+
+@media(min-width:650px){
+    .demo-btn{
+        padding: .75rem 2rem;
+    }
+}
+
+.demo-btn:hover,
+.demo-btn:focus-visible{
+    color: var(--clr-red);
+    background-color: var(--clr-light-grayish-blue);
+}
+
+
+
+
+
+
+
